@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DataBinding"
+             x:Class="DataBinding.MainPage">
+
+    <ContentPage.BindingContext>
+        <!--estas etiquetas definen el contexto de enlace (BindingContext) de la página, que es un objeto que se usa como fuente de datos 
+        para las expresiones de enlace (Binding) que se usan en los elementos hijos de la página-->
+
+        <!--se define usando una etiqueta con el nombre del tipo del objeto, que en este caso es lo siguiente-->
+        <local:Alumno/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <!--  se declara un espacio de nombres local, para referirse a las clases definidas en el espacio de nombres CLR DataBinding. 
+       en CLR es donde se definen las clases del modelo de datos, en este caso seria la clase Alumno-->
+       
+        <VerticalStackLayout Padding="10,10,10,10">
+
+            <!--La expresión de enlace usa la propiedad Nombre del objeto Alumno como fuente del valor del texto, lo que significa que 
+            la entrada mostrará y modificará el nombre del alumno-->
+            <Entry x:Name="NombreAAlumno" Text="{Binding Nombre}" Placeholder="Ingrese su nombre"
+                   PlaceholderColor="Khaki" FontSize="Subtitle"/>
+
+            <!--La expresión de enlace usa la propiedad MostrarNombre del objeto Alumno como fuente del valor del texto, lo que significa que 
+            la etiqueta mostrará el nombre ingresado por el usuario con un formato específico-->
+            <Label Text="{Binding MostrarNombre}" TextColor="HotPink" FontAttributes="Bold" FontSize="Large"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
